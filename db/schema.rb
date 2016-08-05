@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20160805164552) do
   enable_extension "plpgsql"
 
   create_table "emergencies", force: :cascade do |t|
-    t.integer  "pet_owner_id"
+    t.integer  "user_id"
     t.integer  "firestation_id"
     t.string   "status"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["firestation_id"], name: "index_emergencies_on_firestation_id", using: :btree
-    t.index ["pet_owner_id"], name: "index_emergencies_on_pet_owner_id", using: :btree
+    t.index ["user_id"], name: "index_emergencies_on_user_id", using: :btree
   end
 
   create_table "pets", force: :cascade do |t|

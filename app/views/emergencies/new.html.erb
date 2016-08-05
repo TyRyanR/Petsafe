@@ -1,0 +1,8 @@
+<%= form_for @user, url: emergencies_path, method: :post do |f| %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.submit "POST EMERGENCY" %>
+
+<% end %>
