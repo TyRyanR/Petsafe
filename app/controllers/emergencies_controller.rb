@@ -1,0 +1,4 @@
+class EmergenciesController < ApplicationController
+
+
+end
