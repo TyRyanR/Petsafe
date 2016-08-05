@@ -1,0 +1,13 @@
+<h1>PLEASE ENTER YOUR LOGIN INFORMATION BELOW</h1>
+
+<%= form_for @user, url: session_path, method: :post do |f| %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "LOG IN" %>
+
+<% end %>
