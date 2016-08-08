@@ -49,8 +49,8 @@
 
     <div class="campaign">
 
-      <% @user.emergencies.each do |emergency| %>
-        <%= emergency.created_at %>
+      <% @current_user.emergencies.each do |emergency| %>
+        <%= emergency.user.name %>
       <% end %>
 
     </div>
