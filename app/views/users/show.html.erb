@@ -1,20 +1,19 @@
 <% if @current_user.firestation === false %>
-  <h1>CURRENT EMERGENCIES AT MY BUILDING</h1>
 
-
-    <% @current_user.emergencies.each do |emergency| %>
+    <% if @emergency %>
+    <h1>CURRENT EMERGENCY AT MY BUILDING</h1>
 
       <div class="emergency">
         <h4>WHEN</h4>
-        <p>
-          <%= emergency.created_at %>
-        </p>
 
+        <p>
+          <%= @emergency.created_at %>
+        </p>
 
         <div class="firestation_status">
 
           <h4>FIRESTATION STATUS:</h4>
-          <%= emergency.firestation_status %>
+          <%= @emergency.firestation_status %>
 
         </div>
 
@@ -23,11 +22,11 @@
 
           <h4>MY STATUS:</h4>
 
-          <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
+          <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
             <%= f.button :submit, name: "user_status", value: "safe" %>
           <% end %>
 
-          <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
+          <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
             <%= f.button :submit, name: "user_status", value: "alert mode" %>
           <% end %>
 
@@ -35,6 +34,25 @@
 
       </div>
 
+    <% else %>
+
+      <h1>THERE ARE NO CURRENT EMERGENCIES AT YOUR BUILDING</h1>
+
     <% end %>
+
+<% end %>
+
+
+
+<% if @current_user.firestation === true %>
+
+
+    <div class="campaign">
+
+      <% @user.emergencies.each do |emergency| %>
+        <%= emergency.created_at %>
+      <% end %>
+
+    </div>
 
 <% end %>

@@ -7,7 +7,7 @@ class EmergenciesController < ApplicationController
   def create
     @users = User.where(address: params[:user][:address])
     @users.each do |user|
-      Emergency.create(firestation_id: @current_user.id, user_id: user.id)
+      Emergency.create(firestation_id: @current_user.id, user_id: user.id, address: params[:user][:address])
     end
   end
 

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160805163802) do
   create_table "emergencies", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "firestation_id"
+    t.string   "address"
     t.string   "user_status"
     t.string   "firestation_status"
     t.datetime "created_at",         null: false
@@ -32,10 +33,9 @@ ActiveRecord::Schema.define(version: 20160805163802) do
     t.string   "name"
     t.string   "address"
     t.integer  "unit_number"
-    t.integer  "floor_number"
     t.boolean  "firestation"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

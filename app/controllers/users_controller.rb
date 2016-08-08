@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @emergency = Emergency.find_by(user_id: @user.id) ### Since pet owners will only have to view one emergency at a time.
   end
 
   private
