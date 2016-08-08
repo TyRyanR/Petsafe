@@ -5,16 +5,32 @@
     <% @current_user.emergencies.each do |emergency| %>
 
       <div class="emergency">
+        <h4>WHEN</h4>
+        <p>
+          <%= emergency.created_at %>
+        </p>
 
-        <div class="firestation_status"
-          <h1>FIRESTATION STATUS:</h1>
+
+        <div class="firestation_status">
+
+          <h4>FIRESTATION STATUS:</h4>
+          <%= emergency.firestation_status %>
+
         </div>
 
-        <div class="user_status"
-          <h1>MY STATUS:</h1>
+
+        <div class="user_status">
+
+          <h4>MY STATUS:</h4>
+
           <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
-            <%= f.button  :submit, name: "user_status", value: "Safe"%>
+            <%= f.button :submit, name: "user_status", value: "safe" %>
           <% end %>
+
+          <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
+            <%= f.button :submit, name: "user_status", value: "alert mode" %>
+          <% end %>
+
         </div>
 
       </div>

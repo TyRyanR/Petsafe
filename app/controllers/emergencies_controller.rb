@@ -13,6 +13,10 @@ class EmergenciesController < ApplicationController
 
   def update
     @emergency = Emergency.find(params[:id])
+    @emergency.update(user_status: params[:user_status], firestation_status: params[:firestation_status])
+
+    @user = User.find(params[:id])
+    redirect_to user_path(@user)
   end
 
 
