@@ -23,7 +23,7 @@
           <h4>MY STATUS:</h4>
 
           <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
-            <%= f.button :submit, name: "user_status", value: "safe" %>
+            <%= f.button :submit, name: "user_status", value: "dismiss" %>
           <% end %>
 
           <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
@@ -50,7 +50,17 @@
     <div class="campaign">
 
       <% @current_user.emergencies.each do |emergency| %>
+
         <%= emergency.user.name %>
+
+        <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
+          <%= f.button :submit, name: "firestation_status", value: "clear" %>
+        <% end %>
+
+        <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
+          <%= f.button :submit, name: "firestation_status", value: "rescued" %>
+        <% end %>
+
       <% end %>
 
     </div>
