@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :address
       t.integer :unit_number
+      t.integer :floor_number
       t.boolean :firestation
       t.timestamps
     end

@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.petowner_signup {
+  /*display: none;*/
+}
+
+.firestation_signup {
+  /*display: none;*/
+}
