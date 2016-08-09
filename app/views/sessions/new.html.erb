@@ -1,13 +1,18 @@
-<h1>PLEASE ENTER YOUR LOGIN INFORMATION BELOW</h1>
 
-<%= form_for @user, url: session_path, method: :post do |f| %>
+<div class="user_login">
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <h1>WELCOME BACK</h1>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <%= form_for @user, url: session_path, method: :post do |f| %>
 
-  <%= f.submit "LOG IN" %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
 
-<% end %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "LOG IN" %>
+
+  <% end %>
+  
+</div>

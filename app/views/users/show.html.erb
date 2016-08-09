@@ -1,33 +1,31 @@
 <% if @current_user.firestation === false %>
 
     <% if @emergency %>
-    <h1 class="current_emergency">BUILDING FIRE REPORTED</h1>
+    <h1 class="current_emergency">BUILDING FIRE REPORTED AT</h1>
 
       <div class="emergency">
 
-        <h3>WHEN</h3>
-
-        <h2>
+        <h4>
           <%= @emergency.created_at %>
-        </h2>
+        </h4>
 
         <div class="user_status">
 
-          <h3>UPDATE MY STATUS</h3>
+          <h3>MY PET IS</h3>
 
           <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
-            <%= f.button :submit, name: "user_status", value: "dismiss" %>
+            <%= f.button :submit, name: "user_status", value: "safe with me" %>
           <% end %>
 
           <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
-            <%= f.button :submit, name: "user_status", value: "alert mode" %>
+            <%= f.button :submit, name: "user_status", value: "home alone" %>
           <% end %>
 
         </div>
 
         <div class="firestation_status">
 
-          <h3>EMERGENCY STATUS</h3>
+          <h3>RESCUE TEAM SAYS</h3>
           <h2><%= @emergency.firestation_status %></h2>
 
         </div>
@@ -43,7 +41,6 @@
 <% end %>
 
 
-
 <% if @current_user.firestation === true %>
 
 
@@ -54,7 +51,7 @@
         <%= emergency.user.name %>
 
         <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
-          <%= f.button :submit, name: "firestation_status", value: "Unit Clear" %>
+          <%= f.button :submit, name: "firestation_status", value: "Unit Cleared" %>
         <% end %>
 
         <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>

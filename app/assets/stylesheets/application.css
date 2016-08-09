@@ -82,36 +82,96 @@ USER SHOW PAGE
   font-weight: 600;
 }
 
-.emergency h2 {
-  color: rgb(103, 103, 103);
+.emergency h4 {
+  color: rgb(177, 177, 177);
+  font-weight: 300;
+  margin-bottom: 0;
+  font-size: 0.7em;
 }
 
-.emergency h3 {
-  color: rgb(195, 195, 195);
-  font-weight: 300;
+.emergency h5 {
+  color: rgb(103, 103, 103);
+  margin-top: 0;
 }
 
 .user_status {
   margin-bottom: 2em;
   margin-top: 2em;
+  border-bottom: 1px solid rgb(236, 236, 236);
+  padding-bottom: 0.5em;
+}
+
+.user_status h3 {
+  color: rgb(91, 91, 91);
+  font-weight: 700;
+}
+
+.firestation_status h3 {
+  color: rgb(91, 91, 91);
+  font-weight: 700;
+}
+
+.firestation_status h2 {
+  color: rgb(177, 177, 177);
+  font-weight: 300;
+  font-size: 2em;
 }
 
 .user_status form {
   display: inline-block;
 }
 
-.user_status form:hover {
-  pointer:
-}
-
 .user_status form button {
-  padding: 1em 1em;
+  padding: 1.5em 3em;
+  background-color: #ffffff;
+  border: none;
+  color: rgb(204, 204, 204);
+  text-align: center;
+  text-decoration: none;
+  font-weight: 300;
+  display: inline-block;
+  font-size: 1.2em;
 }
 
+.user_status form button:hover {
+  cursor: pointer;
+}
 
+/**************************
+INPUT FORMS
+**************************/
+.petowner_signup h2,
+.firestation_signup h2,
+.user_login h1  {
+  color: rgb(91, 91, 91);
+  font-weight: 300;
+  margin-bottom: 1.5em;
+}
 
+.petowner_signup form,
+.firestation_signup form,
+.user_login form {
+  text-align: center;
+}
 
+.petowner_signup form label,
+.firestation_signup form label,
+.user_login form label {
+  display: block;
+  color: rgb(73, 73, 73);
+  font-weight: 600;
 
+}
+
+.petowner_signup form input,
+.firestation_signup form input,
+.user_login form input {
+  width: 85%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  padding: 0.3em 0.3em;
+  color: rgb(130, 130, 130);
+}
 
 
 .petowner_signup {
