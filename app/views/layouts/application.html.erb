@@ -4,30 +4,43 @@
     <title>Petsafe</title>
     <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
+    <header>
        <% if @current_user %>
 
          <h1><%= link_to "PETSAFE", user_path(@current_user) %></h1>
 
          <% if @current_user.firestation === true %>
-            <%= link_to "+ New Emergency", new_emergency_path %>
+            <ul>
+              <li><%= link_to "+ New Emergency", new_emergency_path %></li>
+            </ul>
          <% end %>
-            <%= link_to "Emergencies", user_path(@current_user) %>
-            <%= link_to "My Account", edit_user_path(@current_user) %>
-            <%= link_to "Sign Out", session_path, method: :delete %>
+           <ul>
+             <li><%= link_to "Emergencies", user_path(@current_user) %></li>
+             <li><%= link_to "My Account", edit_user_path(@current_user) %></li>
+             <li><%= link_to "Sign Out", session_path, method: :delete %></li>
+           </ul>
 
        <% else %>
 
          <h1><%= link_to "PETSAFE", root_path %></h1>
-         <%= link_to "Sign Up", new_user_path %>
-         <%= link_to "Sign In", new_session_path %>
-
+          <ul>
+            <li><%= link_to "Log In", new_session_path %></li>
+            <li id="sign_up"><%= link_to "Sign Up", new_user_path %></li>
+          </ul>
        <% end %>
-    <%= yield %>
+
+     </header>
+
+    <div class="main">
+      <%= yield %>
+    </div>
+
+
   </body>
 </html>
