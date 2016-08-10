@@ -242,6 +242,11 @@ INPUT FORMS
   color: rgb(130, 130, 130);
 }
 
+.error {
+  color: red;
+  font-weight: 600;
+}
+
 /**************************
 MEDIA QUERIES
 **************************/
@@ -252,12 +257,4 @@ MEDIA QUERIES
     font-size: 1.6em;
   }
 
-}
-
-.petowner_signup {
-  /*display: none;*/
-}
-
-.firestation_signup {
-  /*display: none;*/
 }

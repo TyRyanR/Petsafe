@@ -1,6 +1,6 @@
 <% @user.errors.full_messages.each do |message|  %>
 
-  <p>
+  <p class="error">
     <%= message %>
   </p>
 
@@ -15,7 +15,7 @@
     <%= f.text_field :username %>
 
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
 
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -43,7 +43,7 @@
     <%= f.label :password %>
     <%= f.text_field :password %>
 
-    <%= f.label :name %>
+    <%= f.label :name, "Firestation name" %>
     <%= f.text_field :name %>
 
     <%= f.submit "SIGN UP" %>
