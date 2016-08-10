@@ -15,22 +15,34 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if @current_user
+      @user = User.find(params[:id])
+    else
+      redirect_to root_url
+    end
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(create_user)
-    if @user.save
-      redirect_to user_path(@user), notice: "Your account has been updated"
+    if @current_user
+      @user = User.find(params[:id])
+      @user.update(create_user)
+      if @user.save
+        redirect_to user_path(@user), notice: "Your account has been updated"
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to root_url
     end
   end
 
   def show
-    @user = User.find(params[:id])
-    @emergency = Emergency.find_by(user_id: @user.id) ### Since pet owners will only have to view one emergency at a time.
+    if @current_user
+      @user = User.find(params[:id])
+      @emergency = Emergency.find_by(user_id: @user.id) ### Since pet owners will only have to view one emergency at a time.
+    else
+      redirect_to root_url
+    end
   end
 
   private

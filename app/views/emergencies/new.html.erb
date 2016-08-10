@@ -1,8 +1,15 @@
-<%= form_for @user, url: emergencies_path, method: :post do |f| %>
+<div class="new_emergency">
+  <h2>CREATE NEW EMERGENCY</h2>
+  <p>
+    Enter the building address where the fire has been reported.
+  </p>
+  <%= form_for @user, url: emergencies_path, method: :post do |f| %>
 
   <%= f.label :address %>
   <%= f.text_field :address %>
 
   <%= f.submit "POST EMERGENCY" %>
 
-<% end %>
+  <% end %>
+
+</div>

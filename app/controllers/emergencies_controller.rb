@@ -5,23 +5,47 @@ class EmergenciesController < ApplicationController
   end
 
   def create
-    @users = User.where(address: params[:user][:address])
-    @users.each do |user|
-      Emergency.create(firestation_id: @current_user.id, user_id: user.id, address: params[:user][:address])
+    if @current_user
+      @users = User.where(address: params[:user][:address])
+      @users.each do |user|
+        Emergency.create(firestation_id: @current_user.id, user_id: user.id, address: params[:user][:address])
+      end
+      redirect_to @current_user
+    else
+      redirect_to root_url
     end
   end
 
   def update
-    @emergency = Emergency.find(params[:id])
+    if @current_user
+      @emergency = Emergency.find(params[:id])
 
-    if params[:user_status]
-      @emergency.update(user_status: params[:user_status])
+      if params[:user_status]
+        @emergency.update(user_status: params[:user_status])
+      else
+        @emergency.update(firestation_status: params[:firestation_status])
+      end
+
+      redirect_to user_path(@current_user)
     else
-      @emergency.update(firestation_status: params[:firestation_status])
+      redirect_to root_url
     end
-
-    @user = User.find(params[:id])
-    redirect_to user_path(@current_user)
   end
 
+  def destroy
+
+    if @current_user
+      if @current_user
+        @emergencies = Emergency.where(firestation_id: @current_user.id)
+        @emergencies.destroy_all
+        redirect_to @current_user
+      else
+        redirect_to root_url
+      end
+    else
+      redirect_to root_url
+    end
+
+  end
+  
 end

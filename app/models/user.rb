@@ -18,4 +18,10 @@ class User < ApplicationRecord
     end
   end
 
+  def clear_all_emergencies
+    self.emergencies.each do |emergency|
+      emergency.destroy
+    end
+  end
+
 end

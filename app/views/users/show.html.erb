@@ -11,15 +11,15 @@
 
         <div class="user_status">
 
-          <h3>MY PET IS</h3>
+            <h3>MY PET IS</h3>
 
-          <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
-            <%= f.button :submit, name: "user_status", value: "safe with me" %>
-          <% end %>
+            <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
+              <%= f.submit name: "user_status", value: "Safe" %>
+            <% end %>
 
-          <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
-            <%= f.button :submit, name: "user_status", value: "home alone" %>
-          <% end %>
+            <%= form_for @emergency, url: emergency_path(@emergency.id) do |f| %>
+              <%= f.submit name: "user_status", value: "Home Alone" %>
+            <% end %>
 
         </div>
 
@@ -34,7 +34,7 @@
 
     <% else %>
 
-      <h1>THERE ARE NO CURRENT EMERGENCIES AT YOUR BUILDING</h1>
+      <h1 class="no_emergencies">NO CURRENT FIRES IN YOUR BUILDING</h1>
 
     <% end %>
 
@@ -43,23 +43,36 @@
 
 <% if @current_user.firestation === true %>
 
+    <% if @current_user.emergencies != [] %>
 
-    <div class="campaign">
+        <h2 class="no_emergencies"><%= link_to "CLEAR ALL", emergency_path, method: :delete %></h2>
 
-      <% @current_user.emergencies.each do |emergency| %>
+        <% @current_user.emergencies.each do |emergency| %>
 
-        <%= emergency.user.name %>
+            <div class="campaign">
 
-        <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
-          <%= f.button :submit, name: "firestation_status", value: "Unit Cleared" %>
+            <p>Unit <%= emergency.user.unit_number %></p>
+
+            <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
+              <%= f.submit name: "firestation_status", value: "Your Pet's Safe" %>
+            <% end %>
+
+            <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
+              <%= f.submit name: "firestation_status", value: "Pet Rescued & Ready For Pickup" %>
+            <% end %>
+
+            </br>
+
+            <p>Pet Status: <span class="pet_status"><%= emergency.user_status %></span></p>
+
+          </div>
+
         <% end %>
 
-        <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
-          <%= f.button :submit, name: "firestation_status", value: "Pet Rescued" %>
-        <% end %>
+    <% else %>
 
-      <% end %>
+      <h1 class="no_emergencies">NO NEW EMERGENCIES</h1>
 
-    </div>
+    <% end %>
 
 <% end %>
