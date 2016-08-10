@@ -152,7 +152,8 @@ USER SHOW PAGE
   text-align: left;
 }
 
-.user_status form input[type="submit"] {
+.user_status form input[type="submit"],
+.campaign form input[type="submit"] {
   padding: 1.5em 3em;
   background-color: #ffffff;
   border: none;
@@ -165,7 +166,7 @@ USER SHOW PAGE
 }
 
 .user_status form input[type="submit"]:hover,
-.campaign form input[submit]:hover {
+.campaign form input[type="submit"]:hover {
   cursor: pointer;
 }
 
@@ -247,18 +248,11 @@ MEDIA QUERIES
 
 @media (min-width: 700px) {
 
-  form {
-    margin: 0 auto;
-  }
-
   input {
     font-size: 1.6em;
   }
 
 }
-
-
-
 
 .petowner_signup {
   /*display: none;*/

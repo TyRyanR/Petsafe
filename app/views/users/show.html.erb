@@ -53,12 +53,14 @@
 
             <p>Unit <%= emergency.user.unit_number %></p>
 
+            </br>
+
             <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
-              <%= f.submit name: "firestation_status", value: "Your Pet's Safe" %>
+              <%= f.submit name: "firestation_status", value: "No Pet Danger" %>
             <% end %>
 
             <%= form_for emergency, url: emergency_path(emergency.id) do |f| %>
-              <%= f.submit name: "firestation_status", value: "Pet Rescued & Ready For Pickup" %>
+              <%= f.submit name: "firestation_status", value: "Pet Rescued!" %>
             <% end %>
 
             </br>
