@@ -19,13 +19,11 @@ class EmergenciesController < ApplicationController
   def update
     if @current_user
       @emergency = Emergency.find(params[:id])
-
       if params[:user_status]
         @emergency.update(user_status: params[:user_status])
       else
         @emergency.update(firestation_status: params[:firestation_status])
       end
-
       redirect_to user_path(@current_user)
     else
       redirect_to root_url
@@ -33,7 +31,6 @@ class EmergenciesController < ApplicationController
   end
 
   def destroy
-
     if @current_user
       if @current_user
         @emergencies = Emergency.where(firestation_id: @current_user.id)
@@ -45,7 +42,6 @@ class EmergenciesController < ApplicationController
     else
       redirect_to root_url
     end
-
   end
-  
+    
 end

@@ -12,9 +12,7 @@
   <body>
     <header>
        <% if @current_user %>
-
          <h1><%= link_to "PETSAFE", user_path(@current_user) %></h1>
-
          <ul>
          <% if @current_user.firestation === true %>
               <li><%= link_to "+ New", new_emergency_path %></li>
@@ -23,22 +21,16 @@
              <li><%= link_to "My Account", edit_user_path(@current_user) %></li>
              <li><%= link_to "Sign Out", session_path, method: :delete %></li>
            </ul>
-
        <% else %>
-
          <h1><%= link_to "PETSAFE", root_path %></h1>
           <ul>
             <li><%= link_to "Log In", new_session_path %></li>
             <li id="sign_up"><%= link_to "Sign Up", new_user_path %></li>
           </ul>
        <% end %>
-
-     </header>
-
-    <div class="main">
+    </header>
+      <div class="main">
       <%= yield %>
     </div>
-
-
   </body>
 </html>

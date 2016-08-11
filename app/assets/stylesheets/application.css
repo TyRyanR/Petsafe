@@ -15,6 +15,21 @@
  */
 
 /**************************
+WELCOME PAGE
+**************************/
+
+.welcome {
+  font-weight: 600;
+  font-size: 3em;
+  color: rgb(132, 254, 228);
+}
+
+.description {
+  font-weight: 200;
+  line-height: 1.5em;
+}
+
+/**************************
  MAIN SECTION
 **************************/
 
@@ -255,6 +270,19 @@ MEDIA QUERIES
 
   input {
     font-size: 1.6em;
+  }
+
+  .welcome {
+    font-weight: 600;
+    font-size: 5em;
+    color: rgb(132, 254, 228);
+  }
+
+  .description {
+    font-weight: 200;
+    line-height: 1.5em;
+    width: 55%;
+    margin: 0 auto;
   }
 
 }

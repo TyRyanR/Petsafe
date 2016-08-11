@@ -1,62 +1,49 @@
 <% @user.errors.full_messages.each do |message|  %>
-
   <p class="error">
     <%= message %>
   </p>
-
 <% end %>
 
 <% if @current_user.firestation === false %>
+  <div class="petowner_signup">
 
-<div class="petowner_signup">
-  <h2>EDIT MY INFORMATION</h2>
+    <h2>EDIT MY INFORMATION</h2>
+    <%= form_for @user, url: user_path(@user) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
 
-  <%= form_for @user, url: user_path(@user) do |f| %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+      <%= f.label :unit_number %>
+      <%= f.text_field :unit_number %>
+    </br>
+      <%= f.submit "SUBMIT" %>
+    <% end %>
 
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-
-    <%= f.label :unit_number %>
-    <%= f.text_field :unit_number %>
-
-  </br>
-
-    <%= f.submit "SUBMIT" %>
-
-  <% end %>
-
-</div>
-
+  </div>
 <% else %>
+  <div class="firestation_signup">
 
-<div class="firestation_signup">
+    <h2>UPDATE FIRESTATION INFORMATION</h2>
+    <%= form_for @user, url: user_path(@user) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
 
-  <h2>UPDATE FIRESTATION INFORMATION</h2>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
 
-  <%= form_for @user, url: user_path(@user) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+      <%= f.submit "SUBMIT" %>
+    <% end %>
 
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.submit "SUBMIT" %>
-
-  <% end %>
-
-</div>
-
+  </div>
 <% end %>

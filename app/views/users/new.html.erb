@@ -1,53 +1,50 @@
 <% @user.errors.full_messages.each do |message|  %>
-
   <p class="error">
     <%= message %>
   </p>
-
 <% end %>
 
 <div class="petowner_signup">
-<h1 class="signup_green">SIGN UP AS PETOWNER</h1>
 
+  <h1 class="signup_green">SIGN UP AS PETOWNER</h1>
   <%= form_for @user, url: users_path do |f| %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
 
-    <%= f.label :unit_number %>
-    <%= f.text_field :unit_number %>
+      <%= f.label :unit_number %>
+      <%= f.text_field :unit_number %>
 
-    <%= f.submit "SIGN UP" %>
+      <%= f.submit "SIGN UP" %>
 
   <% end %>
 
 </div>
 
 <div class="firestation_signup">
-<h1 class="signup_red">REGISTER AS A FIRESTATION</h1>
 
-  <%= form_for @user, url: users_path do |f| %>
+    <h1 class="signup_red">REGISTER AS A FIRESTATION</h1>
+    <%= form_for @user, url: users_path do |f| %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
 
-    <%= f.label :password %>
-    <%= f.text_field :password %>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
 
-    <%= f.label :name, "Firestation name" %>
-    <%= f.text_field :name %>
+      <%= f.label :name, "Firestation name" %>
+      <%= f.text_field :name %>
 
-    <%= f.submit "SIGN UP" %>
-
-  <% end %>
+      <%= f.submit "SIGN UP" %>
+    <% end %>
 
 </div>
